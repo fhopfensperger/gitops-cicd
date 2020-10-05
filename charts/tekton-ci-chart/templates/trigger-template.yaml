@@ -24,10 +24,11 @@ spec:
       serviceAccountName: pipeline
       pipelineRef:
         name: build-and-push-image
+      params:
       - name: git-url
-        value: {{ .Values.git.repo-url }}
+        value: {{ .Values.git.repoUrl }}
       - name: git-revision
-        value: $(tt.params.git-revision)
+        value: "$(tt.params.git-revision)"
       - name: IMAGE
         value: {{ .Values.dockerregistry}}/{{ .Values.image.repository }}/:$(tt.params.git-revision)
       workspaces:

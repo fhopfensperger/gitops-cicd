@@ -6,7 +6,7 @@ image:
 serviceAccountName: pipeline
 
 git:
-  repo-url: https://github.com/fhopfensperger/simple-go-app.git
+  repoUrl: https://github.com/fhopfensperger/simple-go-app.git
 
 
 ingress:

@@ -1,0 +1,36 @@
+###################################################################################################
+# {{ .Release.Name }} TriggerTemplate
+###################################################################################################
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: {{ include "microservice.fullname" . }}
+spec:
+  params:
+  - name: git-repo-url
+    description: The git repository url
+  - name: git-revision
+    description: The git revision
+    default: master
+  - name: git-repo-name
+    description: The name of the deployment to be created / patched
+
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      name: build-and-push-image-$(tt.params.git-repo-name)-$(uid)
+    spec:
+      serviceAccountName: pipeline
+      pipelineRef:
+        name: build-and-push-image
+      - name: git-url
+        value: {{ .Values.git.repo-url }}
+      - name: git-revision
+        value: $(tt.params.git-revision)
+      - name: IMAGE
+        value: {{ .Values.dockerregistry}}/{{ .Values.image.repository }}/:$(tt.params.git-revision)
+      workspaces:
+        - name: shared-workspace
+          persistentvolumeclaim:
+            claimName: source-pvc

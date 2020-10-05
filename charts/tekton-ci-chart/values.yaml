@@ -1,0 +1,24 @@
+# Default values
+dockerregistry: docker.io
+image:
+  repository: fhopfensperger/simple-go-app
+  tag: latest
+serviceAccountName: pipeline
+
+git:
+  repo-url: https://github.com/fhopfensperger/simple-go-app.git
+
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: hopfi.selfhost.co
+      paths:
+        - /tekton-el/simple-go-app
+  tls: 
+   - secretName: hopfi-selfhost-co-tls
+     hosts:
+       - hopfi.selfhost.co

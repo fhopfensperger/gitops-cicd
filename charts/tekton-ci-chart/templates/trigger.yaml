@@ -1,0 +1,13 @@
+###################################################################################################
+# {{ .Release.Name }} Trigger
+###################################################################################################
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: Trigger
+metadata:
+  name: {{ include "microservice.fullname" . }}
+spec:
+  serviceAccountName: {{ .Values.serviceAccountName }}
+  bindings:
+   - ref: {{ include "microservice.fullname" . }}
+  template:
+   name: {{ include "microservice.fullname" . }}

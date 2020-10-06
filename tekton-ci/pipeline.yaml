@@ -42,6 +42,8 @@ spec:
           value: "false"
         - name: IMAGE
           value: $(params.IMAGE)
+        - name: TAG
+          value: $(params.TAG)
         - name: FORMAT
           value: "docker"
       workspaces:

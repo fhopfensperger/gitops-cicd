@@ -57,7 +57,7 @@ spec:
         - name: FORMAT
           value: "docker"
         - name: BUILD_EXTRA_ARGS
-          value: BUILD_VERSION=$(params.TAG)
+          value: --build-arg BUILD_VERSION=$(params.TAG)
       workspaces:
         - name: source
           workspace: shared-workspace

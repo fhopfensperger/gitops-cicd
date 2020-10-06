@@ -24,3 +24,6 @@ rules:
 - apiGroups: ["triggers.tekton.dev"]
   resources: ["triggertemplates"]
   verbs: ["get", "create", "update", "patch", "list", "watch"]
+- apiGroups: [""]
+  resources: ["users", "groups", "serviceaccounts"]
+  verbs: ["impersonate"]

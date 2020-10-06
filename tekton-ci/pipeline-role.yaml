@@ -15,3 +15,6 @@ rules:
 - apiGroups: ["triggers.tekton.dev"]
   resources: ["eventlisteners"]
   verbs: ["get", "create", "update", "patch", "list", "watch"]
+- apiGroups: ["triggers.tekton.dev"]
+  resources: ["triggers"]
+  verbs: ["get", "create", "update", "patch", "list", "watch"]

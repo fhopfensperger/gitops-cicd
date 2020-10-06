@@ -66,9 +66,7 @@ spec:
           --platform="linux/arm" \
           --tls-verify=$(params.TLSVERIFY) \
           --no-cache \
-          -f $(params.DOCKERFILE) -t $(params.IMAGE):$(params.TAG) $(params.CONTEXT)
-        
-        buildah tag $(params.IMAGE):$(params.TAG) $(params.IMAGE):latest
+          -f $(params.DOCKERFILE) -t $(params.IMAGE):$(params.TAG) -t $(params.IMAGE):latest $(params.CONTEXT) 
       volumeMounts:
         - name: varlibcontainers
           mountPath: /var/lib/containers

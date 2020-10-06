@@ -7,7 +7,7 @@ git:
   repoUrl: https://github.com/fhopfensperger/simple-go-app.git
   
 cicd:
-  repoUrl: https://github.com/fhopfensperger/gitops-cicd.git
+  repo: fhopfensperger/gitops-cicd
   filepath: charts/simple-go-app/values.yaml
 
 ingress:

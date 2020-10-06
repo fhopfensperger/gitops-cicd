@@ -34,7 +34,7 @@ spec:
       - name: TAG
         value: $(tt.params.git-revision)
       - name: git-cicd-url
-        value: {{ .Values.cicd.repoUrl }}
+        value: {{ .Values.cicd.repo }}
       - name: version-file-path
         value: {{ .Values.cicd.filepath }}
       workspaces:

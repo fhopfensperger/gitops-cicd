@@ -30,7 +30,7 @@ spec:
       - name: git-revision
         value: "$(tt.params.git-revision)"
       - name: IMAGE
-        value: {{ .Values.dockerregistry}}/{{ .Values.image.repository }}/:$(tt.params.git-revision)
+        value: {{ .Values.dockerregistry}}/{{ .Values.image.repository }}:$(tt.params.git-revision)
       workspaces:
         - name: shared-workspace
           persistentvolumeclaim:

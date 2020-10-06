@@ -32,7 +32,7 @@ spec:
           {{- range .paths }}
           - path: {{ . }}
             backend:
-              serviceName: {{ $fullName }}
+              serviceName: el-{{ $fullName }}
               servicePort: 8080
           {{- end }}
     {{- end }}

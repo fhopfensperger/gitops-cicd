@@ -30,9 +30,13 @@ spec:
       - name: git-revision
         value: "$(tt.params.git-revision)"
       - name: IMAGE
-        value: {{ .Values.dockerregistry}}/{{ .Values.image.repository }}
+        value: {{ .Values.image.repository }}
       - name: TAG
         value: $(tt.params.git-revision)
+      - name: git-cicd-url
+        value: {{ .Values.cicd.repoUrl }}
+      - name: version-file-path
+        value: {{ .Values.cicd.filepath }}
       workspaces:
         - name: shared-workspace
           persistentvolumeclaim:

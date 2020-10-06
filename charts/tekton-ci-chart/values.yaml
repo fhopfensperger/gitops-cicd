@@ -1,13 +1,14 @@
 # Default values
-dockerregistry: docker.io
 image:
-  repository: fhopfensperger/simple-go-app
-  tag: latest
+  repository: docker.io/fhopfensperger/simple-go-app
 serviceAccountName: pipeline
 
 git:
   repoUrl: https://github.com/fhopfensperger/simple-go-app.git
-
+  
+cicd:
+  repoUrl: https://github.com/fhopfensperger/gitops-cicd.git
+  filepath: ./charts/simple-go-app/values.yaml
 
 ingress:
   enabled: true

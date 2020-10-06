@@ -1,10 +1,8 @@
 # Default values
 nameOverride: simple-go-app
 replicaCount: 1
-dockerregistry: docker.io
 image:
-  repository: fhopfensperger/simple-go-app
-  tag: latest
+  repository: docker.io/fhopfensperger/simple-go-app:latest
   pullPolicy: Always
 reason: unknown
 

@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "git-access-token-secret",
+    "namespace": "dev",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "git-access-token-secret",
+        "namespace": "dev",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "token": "AgBb7ntw6lJzC5uhKkj0KInidkI9o4JxawxtaP+fUJvfL6Qwd7QgWenAFWh7syL8wA1zqW6oRnKtJ/SNTEFmMiI/MmUO+9DMZoKkP4TvLs8YpDEdS8nlEMDAS+kVH6SviPvyEaWA85o787yhtXGqfPKt3s7aDVJoovEWhkWrP3cdX4kzo+KxnDwKrOWV4pBq2M/auLRt8aUw+aFRkMqX/VeownaetdZ3T+n2g7oQXuS//q3F1lOedSfTs8UEyH1mJ8hmMOWmE94tjTH1ehX1A343KVYfhc2aEKNT7SZF9HJNXEL0KTIk5hAdt6PL0V5wwmBqB8vMUyr8xaryXjvPklOG7aQYP2vkNb9kaFFSawcIwXTHYnB5btQYvLZazZ5UgjiZaTpZaqXm1goY2jz5kHfLpWqV6GrbAKIxfc7WTzB3mtLe+6UgrzOnBpMIiRl2oOhpfPUNHVoAuav7YoOw+xXLM9MQqC8/zuIgCCtQChPmXuXztKyRa0An0DqHles8aNPfe5uyqKXYpS96SEJ+QegbTzZoy4/fESE0uxXArvU8FdwbqKiwl+Zx17SYVWHvjAvR5/NV6qRey+kTqNGZtc5Nu5BX/oIJFBxQy3XNrHBzKds9cMCOgkGanft+z6vkpRyYejUdbYqqBFc0dl3RdNxN+8TdZzbNzN7GbxwNbyUu58oZj++teQ7D196EvDtoUeeTKzOUHqpMtfl6yHf5qyAuCTDgPbxOeAwDtR9rHEs/bHpUEJD4qGJS"
+    }
+  }
+}

@@ -19,6 +19,12 @@ spec:
     - name: TAG
       type: string
       description: image tag to be build from the code
+    - name: git-cicd-url
+      type: string
+      description: url of the git repo for the deployment
+    - name: version-file-path
+      type: string
+      description: local file path for the deployment or values
   tasks:
     - name: fetch-repository
       taskRef:
@@ -36,6 +42,7 @@ spec:
           value: "true"
         - name: revision
           value: $(params.git-revision)
+
     - name: build-image
       taskRef:
         name: buildah
@@ -54,3 +61,28 @@ spec:
           workspace: shared-workspace
       runAfter:
         - fetch-repository
+
+    - name: update-stage-deployment-image
+      taskRef:
+        name: image-updater
+      runAfter:
+        - build-image
+      params:
+        - name: driver
+          value: "github"
+        - name: file-path
+          value: $(params.version-file-path)
+        - name: image-repo
+          value: $(params.IMAGE)
+        - name: new-image-url
+          value: "$(params.IMAGE):$(params.TAG)" 
+        - name: source-branch
+          value: "main"
+        - name: source-repo
+          value: $(params.git-cicd-url)
+        - name: update-key
+          value: "image.tag"
+        - name: insecure
+          value: "true"
+        - name: branch-generate-name
+          value: ""

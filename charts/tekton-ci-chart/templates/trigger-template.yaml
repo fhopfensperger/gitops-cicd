@@ -32,7 +32,7 @@ spec:
       - name: IMAGE
         value: {{ .Values.dockerregistry}}/{{ .Values.image.repository }}
       - name: TAG
-        vaule: $(tt.params.git-revision)
+        value: $(tt.params.git-revision)
       workspaces:
         - name: shared-workspace
           persistentvolumeclaim:

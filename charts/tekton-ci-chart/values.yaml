@@ -8,7 +8,7 @@ git:
   
 cicd:
   repoUrl: https://github.com/fhopfensperger/gitops-cicd.git
-  filepath: ./charts/simple-go-app/values.yaml
+  filepath: charts/simple-go-app/values.yaml
 
 ingress:
   enabled: true

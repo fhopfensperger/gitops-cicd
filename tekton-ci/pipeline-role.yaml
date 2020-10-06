@@ -12,3 +12,6 @@ rules:
 - apiGroups: [""]
   resources: ["configmaps"]
   verbs: ["get", "create", "update", "patch", "list", "watch"]
+- apiGroups: ["triggers.tekton.dev"]
+  resources: ["eventlisteners"]
+  verbs: ["get", "create", "update", "patch", "list", "watch"]

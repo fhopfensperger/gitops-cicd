@@ -81,7 +81,7 @@ spec:
         - name: source-repo
           value: $(params.git-cicd-url)
         - name: update-key
-          value: "image.tag"
+          value: "image.repository"
         - name: insecure
           value: "true"
         - name: branch-generate-name

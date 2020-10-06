@@ -9,7 +9,6 @@ env:
 image:
   pullPolicy: Always
   repository: docker.io/fhopfensperger/simple-go-app:latest
-  tag: docker.io/fhopfensperger/simple-go-app:a9dc79a3e6674f6ddd3a4f39e8e89d26f3d4039c
 ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod

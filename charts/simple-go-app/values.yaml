@@ -1,57 +1,41 @@
-# Default values
-nameOverride: simple-go-app
-replicaCount: 1
+autoscaling:
+  enabled: true
+  maxReplicas: 100
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+env:
+- name: QUARKUS_JAEGER_SERVICE_NAME
+  value: '{{ .Release.Name }}.{{ .Release.Namespace }}'
 image:
-  repository: docker.io/fhopfensperger/simple-go-app:latest
   pullPolicy: Always
-reason: unknown
-
+  repository: docker.io/fhopfensperger/simple-go-app:latest
+  tag: docker.io/fhopfensperger/simple-go-app:a9dc79a3e6674f6ddd3a4f39e8e89d26f3d4039c
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+  enabled: true
+  hosts:
+  - host: hopfi.selfhost.co
+    paths:
+    - /hello
+  tls:
+  - hosts:
+    - hopfi.selfhost.co
+    secretName: hopfi-selfhost-co-tls
+nameOverride: simple-go-app
 podAnnotations: {}
-
 podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
+reason: unknown
+replicaCount: 1
 resources:
-  requests:
-    cpu: 100m
-    memory: 100Mi
   limits:
     cpu: 100m
     memory: 100Mi
-
-autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
+  requests:
+    cpu: 100m
+    memory: 100Mi
+securityContext: {}
 service:
-  type: ClusterIP
   port: 8080
-
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-  hosts:
-    - host: hopfi.selfhost.co
-      paths:
-        - /hello
-  tls: 
-   - secretName: hopfi-selfhost-co-tls
-     hosts:
-       - hopfi.selfhost.co
-
-env:
-  - name: QUARKUS_JAEGER_SERVICE_NAME
-    value: "{{ .Release.Name }}.{{ .Release.Namespace }}"
+  type: ClusterIP

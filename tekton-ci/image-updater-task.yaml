@@ -46,7 +46,7 @@ spec:
       default: "false"
   steps:
     - name: update-image
-      image: fhopfensperger/image-updater-e12eae6439f1af821790525e6c3ab582:latest
+      image: fhopfensperger/image-updater-e12eae6439f1af821790525e6c3ab582:latest@sha256:8a481808b7df8cde54f4c0d7bd1a565e5a896a0c6fa79632b72bdc8cf5013b47
       args:
         - "update"
         - "--driver=$(params.driver)"

@@ -8,7 +8,7 @@ env:
   value: '{{ .Release.Name }}.{{ .Release.Namespace }}'
 image:
   pullPolicy: Always
-  repository: docker.io/fhopfensperger/simple-go-app:9426fea6cae7c57ea15128568dc69e91f7232a85
+  repository: docker.io/fhopfensperger/simple-go-app:8e8b70b74345a8262ab776d447d888c96cee8a58
 ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
